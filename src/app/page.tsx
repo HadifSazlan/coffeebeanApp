@@ -2,7 +2,7 @@ import {CoffeeBean} from "@/types/CoffeeBean";
 import {BeanCard} from "@/app/components/BeanCard";
 
 async function getData() {
-    const res = await fetch('http://localhost:3000/api/v1/relation')
+    const res = await fetch('http://localhost:3000/api/v1/beans')
 
     if (!res.ok) {
         throw new Error('Failed to fetch data')

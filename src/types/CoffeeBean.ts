@@ -6,7 +6,8 @@ export type CoffeeBean = {
     process: string
     altitude: string
     roasterId?: number
-    roasterName?:string
+    roasterName?: string
+    roasterSlug?: string
     supplierId?: number
-    supplierName?:string
+    supplierName?: string
 }

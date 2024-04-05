@@ -1,11 +1,12 @@
-import { CoffeeBean } from "@/types/CoffeeBean";
-import React from "react";
+import {CoffeeBean} from "@/types/CoffeeBean"
+import React from "react"
+import Link from 'next/link'
 
 interface BeanCardProps {
     bean: CoffeeBean;
 }
 
-export const BeanCard: React.FC<BeanCardProps> = ({ bean }) => {
+export const BeanCard: React.FC<BeanCardProps> = ({bean}) => {
     const beanDetails = (
         <ul>
             <li>Origin: {bean.origin}</li>
@@ -23,8 +24,25 @@ export const BeanCard: React.FC<BeanCardProps> = ({ bean }) => {
             </div>
             <div className="border-t px-4">
                 <p className="text-xs  divide-x-2 pt-2">
-                    {bean.roasterName && <span className="pr-1">Roasted by {bean.roasterName} </span>}
-                    {bean.supplierName && <span className="pl-1">Supplied by {bean.supplierName}</span>}
+                    {
+                        bean.roasterName &&
+                        (
+                            <div>
+                                <span className="pr-1">Roasted by</span>
+                                <Link href={`/roasters/${bean.roasterSlug}`}
+                                    className="hover:text-blue-400"
+                                >
+                                    {bean.roasterName}
+                                </Link>
+                            </div>
+                        )
+                    }
+                    {
+                        bean.supplierName &&
+                        <span className="pl-1">
+                            Supplied by {bean.supplierName}
+                        </span>
+                    }
                 </p>
             </div>
         </div>
