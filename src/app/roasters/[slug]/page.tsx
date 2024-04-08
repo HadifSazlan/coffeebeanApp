@@ -3,8 +3,32 @@ import {CoffeeBean} from "@/types/CoffeeBean";
 import {BeanCard} from "@/app/components/BeanCard";
 import React from "react";
 import Link from "next/link";
+import {Metadata} from 'next'
 
 const apiUrl = process.env.API_URL
+
+type Props = {
+    params: { slug: string }
+}
+
+export async function generateMetadata(
+    {params}: Props,
+): Promise<Metadata> {
+
+    const slug = params.slug
+
+    const roaster: Roaster = await getData(slug)
+
+    return {
+        title: roaster.name,
+        openGraph: {
+            title: roaster.name,
+        },
+        twitter: {
+            title: roaster.name
+        }
+    }
+}
 
 export async function generateStaticParams() {
     const res = await fetch(`${apiUrl}/roasters`);
@@ -69,27 +93,27 @@ export default async function Page({params}: { params: { slug: string } }) {
                             </Link>
                         </div>
                     </div>
-                   <div className="mt-12">
-                       <h1 className="text-2xl font-bold tracking-wider">
-                           {roaster.name}
-                       </h1>
-                       <div className="mt-6">
-                           <h2 className="text-xl font-bold tracking-wider">
-                               Beans
-                           </h2>
-                           <div className="mt-2">
-                               {beansList}
-                           </div>
-                       </div>
-                       <div className="mt-6">
-                           <h3 className="text-lg font-medium tracking-wide">
-                               Contact Details
-                           </h3>
-                           <div className="mt-2">
-                               {contactDetails}
-                           </div>
-                       </div>
-                   </div>
+                    <div className="mt-12">
+                        <h1 className="text-2xl font-bold tracking-wider">
+                            {roaster.name}
+                        </h1>
+                        <div className="mt-6">
+                            <h2 className="text-xl font-bold tracking-wider">
+                                Beans
+                            </h2>
+                            <div className="mt-2">
+                                {beansList}
+                            </div>
+                        </div>
+                        <div className="mt-6">
+                            <h3 className="text-lg font-medium tracking-wide">
+                                Contact Details
+                            </h3>
+                            <div className="mt-2">
+                                {contactDetails}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
