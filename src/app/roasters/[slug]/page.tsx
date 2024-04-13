@@ -81,8 +81,8 @@ export default async function Page({params}: { params: { slug: string } }) {
 
     return (
         <div>
-            <main className="flex min-h-screen bg-white flex-col items-center p-24">
-                <div className="w-1/3">
+            <main className="flex min-h-screen bg-white flex-col items-center px-4 pt-12 pb-8 md:py-16">
+                <div className="w-full md:w-1/3">
                     <div className="flex justify-start">
                         <div>
                             <Link href="/"
@@ -98,6 +98,11 @@ export default async function Page({params}: { params: { slug: string } }) {
                             {roaster.name}
                         </h1>
                         <div className="mt-6">
+                            <div className="mt-2">
+                                {contactDetails}
+                            </div>
+                        </div>
+                        <div className="mt-6">
                             <h2 className="text-xl font-bold tracking-wider">
                                 Beans
                             </h2>
@@ -105,14 +110,7 @@ export default async function Page({params}: { params: { slug: string } }) {
                                 {beansList}
                             </div>
                         </div>
-                        <div className="mt-6">
-                            <h3 className="text-lg font-medium tracking-wide">
-                                Contact Details
-                            </h3>
-                            <div className="mt-2">
-                                {contactDetails}
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </main>

@@ -19,7 +19,7 @@ export const BeanCard: React.FC<BeanCardProps> = ({bean, expanded = false}) => {
 
     const expandedDetails = expanded && (
         <div className="border-t px-4">
-            <ul className="text-xs pt-2">
+            <ul className="text-sm pt-2">
                 {
                     bean.roaster &&
                     (
@@ -46,8 +46,8 @@ export const BeanCard: React.FC<BeanCardProps> = ({bean, expanded = false}) => {
     return (
         <div className="border py-4 space-y-2 rounded-lg">
             <div className="px-4">
-                <p className="text-xl font-bold tracking-wide">{bean.name}</p>
-                <div className="text-sm space-y-2 mt-2">{beanDetails}</div>
+                <p className="text-xl md:text-2xl font-bold tracking-wide">{bean.name}</p>
+                <div className=" space-y-2 mt-2">{beanDetails}</div>
             </div>
             {expandedDetails}
         </div>

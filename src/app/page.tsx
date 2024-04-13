@@ -24,8 +24,8 @@ export default async function Home() {
     });
 
     return (
-        <main className="flex min-h-screen bg-white flex-col items-center justify-between p-24">
-            <div className="w-1/3">
+        <main className="flex min-h-screen bg-white flex-col items-center justify-between px-4 pt-12 pb-8 md:py-16">
+            <div className="w-full md:w-1/3">
                 <h1 className="text-2xl font-bold tracking-wider">
                     Coffee Beans
                 </h1>
