@@ -4,7 +4,7 @@ import {BeanCard} from "@/app/components/BeanCard";
 const apiUrl = process.env.API_URL
 
 async function getData() {
-    const res = await fetch(`${apiUrl}/beans`);
+    const res = await fetch(`${apiUrl}/beans`, { next: { revalidate: 3600 } })
 
     if (!res.ok) {
         throw new Error('Failed to fetch data')

@@ -31,7 +31,7 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-    const res = await fetch(`${apiUrl}/roasters`);
+    const res = await fetch(`${apiUrl}/roasters`, { next: { revalidate: 3600 } })
 
     if (!res.ok) {
         throw new Error('Failed to fetch data');
@@ -45,7 +45,7 @@ export async function generateStaticParams() {
 }
 
 async function getData(slug: string) {
-    const res = await fetch(`${apiUrl}/roasters/${slug}`)
+    const res = await fetch(`${apiUrl}/roasters/${slug}`, { next: { revalidate: 3600 } })
 
     if (!res.ok) {
         throw new Error('Failed to fetch data')
