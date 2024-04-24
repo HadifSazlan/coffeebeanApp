@@ -11,4 +11,5 @@ export type CoffeeBean = {
     altitude: string
     roaster?:Roaster
     supplier?:Supplier
+    link?: string
 }

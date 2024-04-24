@@ -46,7 +46,18 @@ export const BeanCard: React.FC<BeanCardProps> = ({bean, expanded = false}) => {
     return (
         <div className="border py-4 space-y-2 rounded-lg">
             <div className="px-4">
-                <p className="text-xl md:text-2xl font-bold tracking-wide">{bean.name}</p>
+                <div className="flex justify-between items-center">
+                    <p className="text-xl md:text-2xl font-bold tracking-wide">{bean.name}</p>
+                    {
+                        bean.link && (
+                            <a href={bean.link}
+                               className="px-3 py-2 text-gray-200 rounded-lg bg-blue-700 hover:bg-opacity-90"
+                            >
+                                BUY NOW
+                            </a>
+                        )
+                    }
+                </div>
                 <div className=" space-y-2 mt-2">{beanDetails}</div>
             </div>
             {expandedDetails}
